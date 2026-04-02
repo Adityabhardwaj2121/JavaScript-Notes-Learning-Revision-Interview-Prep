@@ -1,29 +1,31 @@
 // A JavaScript Date is stored as milliseconds since:
 // 1 Jan 1970, 00:00:00 UTC (UNIX epoch)
 
+// Note: Output varies based on system time and timezone
+
 // -------------------- Dates --------------------
 
 let myDate = new Date();
 
-console.log(myDate);
+console.log(myDate); // example: 2026-04-03T18:45:30.123Z
 console.log("");
 
-console.log(myDate.toString());
+console.log(myDate.toString()); // Fri Apr 03 2026 11:45:30 GMT+0530 (India Standard Time)
 console.log("");
 
-console.log(myDate.toDateString());
+console.log(myDate.toDateString()); // Fri Apr 03 2026
 console.log("");
 
-console.log(myDate.toLocaleString());
+console.log(myDate.toLocaleString()); // 03/04/2026, 11:45:30 pm
 console.log("");
 
-console.log(myDate.toLocaleDateString());
+console.log(myDate.toLocaleDateString()); // 03/04/2026
 console.log("");
 
-console.log(myDate.toISOString());
+console.log(myDate.toISOString()); // 2026-04-03T18:45:30.123Z
 console.log("");
 
-console.log(myDate.toJSON());
+console.log(myDate.toJSON()); // 2026-04-03T18:45:30.123Z
 console.log("");
 
 console.log(typeof myDate); // object
@@ -34,15 +36,14 @@ console.log("");
 
 // Month is 0-based (0 = Jan, 4 = May)
 let myCreatedDate = new Date(2026, 4, 24);
-console.log(myCreatedDate.toDateString());
+console.log(myCreatedDate.toDateString()); // Sun May 24 2026
 console.log("");
 
 
 // ❌ Incorrect (JS does NOT support DD-MM-YYYY reliably)
 let myCreatedDate2 = new Date("02-09-2026");
 
-// Likely interpreted as Feb 9, 2026 (NOT 2 Sept)
-console.log(myCreatedDate2.toLocaleString());
+console.log(myCreatedDate2.toLocaleString()); // likely: 09/02/2026, ... (Feb 9, not 2 Sept)
 console.log("");
 
 
@@ -52,7 +53,7 @@ let input = "02-09-2026";
 let [day, month, year] = input.split("-");
 let myCreatedDate3 = new Date(year, month - 1, day);
 
-console.log(myCreatedDate3.toLocaleString());
+console.log(myCreatedDate3.toLocaleString()); // 02/09/2026, ...
 console.log("");
 
 
@@ -60,18 +61,18 @@ console.log("");
 
 let myTimeStamp = Date.now();
 
-console.log(myTimeStamp); // current time in milliseconds
+console.log(myTimeStamp); // example: 1775215530123 (milliseconds)
 console.log("");
 
-console.log(myCreatedDate.getTime()); // milliseconds for given date
+console.log(myCreatedDate.getTime()); // milliseconds for that date
 console.log("");
 
 
 // Convert milliseconds to seconds
-console.log(Date.now() / 1000); // decimal value
+console.log(Date.now() / 1000); // decimal seconds
 
 // Remove decimals
-console.log(Math.floor(Date.now() / 1000));
+console.log(Math.floor(Date.now() / 1000)); // integer seconds
 console.log("");
 
 
@@ -79,23 +80,23 @@ console.log("");
 
 let newDate = new Date();
 
-console.log(newDate);
-console.log(newDate.getDate());   // day of month (1–31)
+console.log(newDate); // current date object
+console.log(newDate.getDate());   // 1–31 (day of month)
 console.log(newDate.getMonth());  // 0-based (0 = Jan)
 console.log(newDate.getDay());    // 0 = Sunday
 console.log("");
 
 
 // ISO format (safe and recommended)
-let testDate = new Date('2026-03-29');   // ISO format → month is normal (03 = March)
+let testDate = new Date('2026-03-29'); // month is normal (03 = March)
 
-console.log(testDate.toLocaleDateString());// prints date in local format (e.g., 29/3/2026)
-console.log(testDate.getDay()); // 0 = Sunday
+console.log(testDate.toLocaleDateString()); // 29/03/2026
+console.log(testDate.getDay()); // 0 (Sunday)
 console.log("");
 
 
 // String interpolation
-console.log(`${newDate.getDay()} and the time is ${newDate.getTime()}`);
+console.log(`${newDate.getDay()} and the time is ${newDate.getTime()}`); // e.g. 5 and the time is 1775215530123
 console.log("");
 
 
