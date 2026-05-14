@@ -14,7 +14,7 @@ console.log("\n----- AFTER NUMBER CONVERSION -----");
 console.log(typeof(valueInNumber));
 
 
-// what if on number is converted:
+// what happens when an invalid number string is used
 
 let a = "33abc"; // its a Nan
 console.log("\n----- INVALID NUMBER STRING -----");
