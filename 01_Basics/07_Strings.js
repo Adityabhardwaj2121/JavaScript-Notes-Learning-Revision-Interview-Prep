@@ -28,7 +28,7 @@ console.log(gameName.charAt(2));     // Character at index
 console.log(gameName.toUpperCase()); // Convert to uppercase
 
 // Finding index of character
-console.log(gameName.indexOf('t'))   // Returns index
+console.log(gameName.indexOf('t'))   // Returns the index of the first occurrence of 't'
 console.log(gameName.indexOf('z'))   // Returns -1 if not found
 
 
@@ -82,4 +82,5 @@ console.log(var1.split("-"));
 // splits string at '-' → ["Hello", "World"]
 
 console.log(var1.split("l")); 
-// splits at every 'l' → ["He", "", "o-Wor", "d"]
+// splits at every 'l' → ["He", "", "o-Wor", "d"] 
+// If two 'l's come together, an empty string "" appears between them
